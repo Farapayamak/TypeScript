@@ -1,0 +1,25 @@
+{
+  "name": "farapayamak",
+  "version": "1.0.0",
+  "description": "TypeScript webservice wrapper for Farapayamak",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Farapayamak/TypeScript.git"
+  },
+  "keywords": [
+    "Farapayamak"
+  ],
+  "author": "Amirhossein Mehrvarzi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Farapayamak/TypeScript/issues"
+  },
+  "homepage": "https://github.com/Farapayamak/TypeScript#readme",
+  "devDependencies": {
+    "typescript": "^4.8.3"
+  }
+}
