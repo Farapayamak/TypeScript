@@ -1,5 +1,5 @@
 {
-  "name": "farapayamak",
+  "name": "@types/farapayamak",
   "version": "1.0.0",
   "description": "TypeScript webservice wrapper for Farapayamak",
   "main": "index.js",

@@ -15,3 +15,6 @@ export class RestClient {
   BaseServicenumber = (text: string, to: string, bodyId: number) => Promise;
 }
 
+
+
+
