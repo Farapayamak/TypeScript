@@ -2,8 +2,10 @@
   "name": "@types/farapayamak",
   "version": "1.0.0",
   "description": "TypeScript webservice wrapper for Farapayamak",
-  "main": "index.js",
+  "main": "",
+  "types": "index.d.ts",
   "scripts": {
+    "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
