@@ -1,0 +1,6 @@
+{
+    "name": "rest",
+    "version": "1.0.0",
+    "main": "./rest.js",
+    "typings": "./rest.d.ts"
+}

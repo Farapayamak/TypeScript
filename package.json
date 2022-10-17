@@ -4,6 +4,7 @@
   "description": "TypeScript webservice wrapper for Farapayamak",
   "main": "",
   "types": "index.d.ts",
+  "type": "module",
   "scripts": {
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
