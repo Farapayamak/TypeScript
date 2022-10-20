@@ -1,7 +1,7 @@
 {
   "name": "farapayamak-test",
   "author": "Amirhossein Mehrvarzi",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "main": "./lib/rest.js",
   "types": "./lib/rest.d.ts",
   "dependencies": {
