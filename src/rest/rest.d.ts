@@ -4,7 +4,7 @@ export class RestClient {
 
     constructor(username: string, password: string);
 
-    SendSMS(to: string, from: string, text: string, isFlash: boolean): Promise<any>;
+    SendSMS(to: string, from: string, text: string, isFlash?: boolean): Promise<any>;
     GetDeliveries(recId: number): Promise<any>;
     GetMessages(location: number, from: string, index: number, count: number): Promise<any>;
     GetCredit(): Promise<any>;

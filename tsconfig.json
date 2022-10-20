@@ -6,7 +6,7 @@
     "emitDeclarationOnly": true,
     "outDir": "dist",
     "declarationMap": true,
-    "module": "es2015"
+    "module": "CommonJS"
     // "esModuleInterop": true
   }
 }
