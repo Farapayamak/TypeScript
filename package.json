@@ -1,10 +1,13 @@
 {
   "name": "farapayamak-test",
-  "version": "1.0.5",
-  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "version": "1.0.6",
+  "description": "TypeScript webservice wrapper for Farapayamak",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "files": [
     "/dist"
-  ]
+  ],
+  "dependencies": {
+    "@types/node": "^18.11.3"
+  }
 }
