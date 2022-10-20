@@ -1,10 +1,10 @@
 {
   "name": "farapayamak-test",
-  "author": "Amirhossein Mehrvarzi",
-  "version": "1.0.4",
-  "main": "./lib/rest.js",
-  "types": "./lib/rest.d.ts",
-  "dependencies": {
-    "typescript": "next"
-  }
+  "version": "1.0.5",
+  "description": "Can log \"hello world\" and \"goodbye world\" to the console!",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "/dist"
+  ]
 }
