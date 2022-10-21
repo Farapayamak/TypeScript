@@ -1,6 +1,6 @@
 import * as soap from 'soap';
 
-class SoapClient {
+export class SoapClient {
 
     constructor(private username: string, private password: string) {
         this.username = username;
@@ -25,18 +25,18 @@ class SoapClient {
 
     // SEND webservice
     GetCredit = () => this.request(ENDPOINTS.SEND, 'GetCredit', {});
-    GetDeliveries = (recIds) => this.request(ENDPOINTS.SEND, 'GetDeliveries', { recIds });
-    GetDeliveries3 = (recId) => this.request(ENDPOINTS.SEND, 'GetDeliveries3', { recId });
-    GetSmsPrice = (irancellCount, mtnCount, from, text) => this.request(ENDPOINTS.SEND, 'GetSmsPrice', { irancellCount, mtnCount, from, text });
-    SendByBaseNumber = (text, to, bodyId) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber', { text, to, bodyId });
-    SendByBaseNumber2 = (text, to, bodyId) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber2', { text, to, bodyId });
-    SendByBaseNumber3 = (text, to) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber3', { 'text': text, 'to': to });
-    SendSimpleSMS = (to, from, text, isflash) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS', { to, from, text, isflash });
-    SendSimpleSMS2 = (to, from, text, isflash) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS2', { to, from, text, isflash });
-    SendSms = (to, from, text, isflash, udh, recId, status) => this.request(ENDPOINTS.SEND, 'SendSms', { to, from, text, isflash, udh, recId, status });
-    SendSms2 = (to, from, text, isflash, udh, recId, status, filterId) => this.request(ENDPOINTS.SEND, 'SendSms2', { to, from, text, isflash, udh, recId, status, filterId });
-    SendMultipleSMS = (to, from, text, isflash, udh, recId, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS', { to, from, text, isflash, udh, recId, status });
-    SendMultipleSMS2 = (to, from, text, isflash, udh, recId, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS2', { to, from, text, isflash, udh, recId, status });
+    GetDeliveries = (recIds: {long: Array<number>}) => this.request(ENDPOINTS.SEND, 'GetDeliveries', { recIds });
+    GetDeliveries3 = (recId: {string: Array<string>}) => this.request(ENDPOINTS.SEND, 'GetDeliveries3', { recId });
+    GetSmsPrice = (irancellCount: number, mtnCount: number, from: string, text: string) => this.request(ENDPOINTS.SEND, 'GetSmsPrice', { irancellCount, mtnCount, from, text });
+    SendByBaseNumber = (text: {string: Array<string>}, to: string, bodyId: number) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber', { text, to, bodyId });
+    SendByBaseNumber2 = (text: string, to: string, bodyId: number) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber2', { text, to, bodyId });
+    SendByBaseNumber3 = (text: string, to: string) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber3', { 'text': text, 'to': to });
+    SendSimpleSMS = (to: {string: Array<string>}, from: string, text: string, isflash: boolean) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS', { to, from, text, isflash });
+    SendSimpleSMS2 = (to: string, from: string, text: string, isflash: boolean) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS2', { to, from, text, isflash });
+    SendSms = (to: {string: Array<string>}, from: string, text: string, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendSms', { to, from, text, isflash, udh, recId, status });
+    SendSms2 = (to: {string: Array<string>}, from: string, text: string, isflash: boolean, udh: string, recId: {long: Array<number>}, status, filterId: number) => this.request(ENDPOINTS.SEND, 'SendSms2', { to, from, text, isflash, udh, recId, status, filterId });
+    SendMultipleSMS = (to: {string: Array<string>}, from: string, text: {string: Array<string>}, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS', { to, from, text, isflash, udh, recId, status });
+    SendMultipleSMS2 = (to: {string: Array<string>}, from: {string: Array<string>}, text: {string: Array<string>}, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS2', { to, from, text, isflash, udh, recId, status });
 
     // RECEIVE webservice
     ChangeMessageIsRead = (msgIds) => this.request(ENDPOINTS.RECEIVE, 'ChangeMessageIsRead', { msgIds });
@@ -157,5 +157,3 @@ class ENDPOINTS {
     static SCHEDULE = "Schedule";
     static BULKS = "Newbulks";
 }
-
-module.exports = SoapClient;
