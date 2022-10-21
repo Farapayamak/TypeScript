@@ -8,6 +8,7 @@
     "/dist"
   ],
   "dependencies": {
-    "@types/node": "^18.11.3"
+    "@types/node": "^18.11.3",
+    "soap": "^0.23.0"
   }
 }
