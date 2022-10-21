@@ -39,16 +39,16 @@ export class SoapClient {
     SendMultipleSMS2 = (to: {string: Array<string>}, from: {string: Array<string>}, text: {string: Array<string>}, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS2', { to, from, text, isflash, udh, recId, status });
 
     // RECEIVE webservice
-    ChangeMessageIsRead = (msgIds) => this.request(ENDPOINTS.RECEIVE, 'ChangeMessageIsRead', { msgIds });
-    GetInboxCount = (isRead) => this.request(ENDPOINTS.RECEIVE, 'GetInboxCount', { isRead });
-    GetLatestReceiveMsg = (sender, receiver) => this.request(ENDPOINTS.RECEIVE, 'GetLatestReceiveMsg', { sender, receiver });
-    GetMessages = (location, from, index, count) => this.request(ENDPOINTS.RECEIVE, 'GetMessages', { location, from, index, count });
-    GetMessagesAfterID = (location, from, count, msgId) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesAfterID', { location, from, count, msgId });
-    GetMessagesFilterByDate = (location, from, index, count, dateFrom, dateTo, isRead) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesFilterByDate', { location, from, index, count, dateFrom, dateTo, isRead });
-    GetMessagesReceptions = (msgId, fromRows) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesReceptions', { msgId, fromRows });
-    GetMessagesWithChangeIsRead = (location, from, index, count, isRead, changeIsRead) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesWithChangeIsRead', { location, from, index, count, isRead, changeIsRead });
+    ChangeMessageIsRead = (msgIds: string) => this.request(ENDPOINTS.RECEIVE, 'ChangeMessageIsRead', { msgIds });
+    GetInboxCount = (isRead: boolean) => this.request(ENDPOINTS.RECEIVE, 'GetInboxCount', { isRead });
+    GetLatestReceiveMsg = (sender: string, receiver: string) => this.request(ENDPOINTS.RECEIVE, 'GetLatestReceiveMsg', { sender, receiver });
+    GetMessages = (location: number, from: string, index: number, count: number) => this.request(ENDPOINTS.RECEIVE, 'GetMessages', { location, from, index, count });
+    GetMessagesAfterID = (location: number, from: string, count: number, msgId: number) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesAfterID', { location, from, count, msgId });
+    GetMessagesFilterByDate = (location: number, from: string, index: number, count: number, dateFrom: Date, dateTo: Date, isRead: boolean) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesFilterByDate', { location, from, index, count, dateFrom, dateTo, isRead });
+    GetMessagesReceptions = (msgId: number, fromRows: number) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesReceptions', { msgId, fromRows });
+    GetMessagesWithChangeIsRead = (location: number, from: string, index: number, count: number, isRead: boolean, changeIsRead: boolean) => this.request(ENDPOINTS.RECEIVE, 'GetMessagesWithChangeIsRead', { location, from, index, count, isRead, changeIsRead });
     GetOutBoxCount = () => this.request(ENDPOINTS.RECEIVE, 'GetOutBoxCount', {});
-    RemoveMessages = (location, msgIds) => this.request(ENDPOINTS.RECEIVE, 'RemoveMessages', { location, msgIds });
+    RemoveMessages = (location: "Received" | "Sent" | "Removed" | "Deleted", msgIds: string) => this.request(ENDPOINTS.RECEIVE, 'RemoveMessages', { location, msgIds });
 
     // USER webservice
     AddUser = (productId, descriptions, mobileNumber, emailAddress, nationalCode, name, family, corporation, phone, fax,
