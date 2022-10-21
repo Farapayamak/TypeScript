@@ -1,10 +1,10 @@
-const https = require('https');
+import * as https from 'https';
 
-class RestClient {
+export class RestClient {
 
     loggingEnable = false;
 
-    constructor(username, password) {
+    constructor(private username: string, private password: string) {
         this.username = username;
         this.password = password;
     }
@@ -54,13 +54,13 @@ class RestClient {
     }
 
 
-    SendSMS = (to, from, text, isFlash = false) => this.request(FUNCS.SENDSMS, { to, from, text, isFlash });
-    GetDeliveries = (recId) => this.request(FUNCS.GETDELIVERIES, { recId });
-    GetMessages = (location, from, index, count) => this.request(FUNCS.GETMESSAGES, { location, from, index, count });
+    SendSMS = (to: string, from: string, text: string, isFlash: boolean = false) => this.request(FUNCS.SENDSMS, { to, from, text, isFlash });
+    GetDeliveries = (recId: number) => this.request(FUNCS.GETDELIVERIES, { recId });
+    GetMessages = (location: number, from: string, index: number, count: number) => this.request(FUNCS.GETMESSAGES, { location, from, index, count });
     GetCredit = () => this.request(FUNCS.GETCREDIT, {});
     GetBasePrice = () => this.request(FUNCS.GETBASEPRICE, {});
     GetUserNumbers = () => this.request(FUNCS.GETUSERNUMBERS, {});
-    BaseServicenumber = (text, to, bodyId) => this.request(FUNCS.BASESERVICENUMBER, { text, to, bodyId });
+    BaseServicenumber = (text: string, to: string, bodyId: number) => this.request(FUNCS.BASESERVICENUMBER, { text, to, bodyId });
 }
 
 
@@ -73,5 +73,3 @@ class FUNCS {
     static GETUSERNUMBERS = "GetUserNumbers";
     static BASESERVICENUMBER = "BaseServiceNumber";
 }
-
-module.exports = RestClient;
