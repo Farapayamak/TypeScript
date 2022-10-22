@@ -102,30 +102,30 @@ export class SoapClient {
     UploadVoiceFile = (title: string, base64StringFile: string) => this.request(ENDPOINTS.VOICE, 'UploadVoiceFile', { title, base64StringFile });
 
     // CONTACT webservice
-    AddContact = (groupIds, firstname, lastname, nickname, corporation, mobilenumber, phone, fax, birthdate, email,
-        gender, province, city, address, postalCode, additionaldate, additionaltext, descriptions) =>
+    AddContact = (groupIds: string, firstname: string, lastname: string, nickname: string, corporation: string, mobilenumber: string, phone: string, fax: string, birthdate: Date, email: string,
+        gender: any, province: number, city: number, address: string, postalCode: string, additionaldate: Date, additionaltext: string, descriptions: string) =>
         this.request(ENDPOINTS.CONTACTS, 'AddContact', {
             groupIds, firstname, lastname, nickname, corporation, mobilenumber, phone, fax, birthdate, email,
             gender, province, city, address, postalCode, additionaldate, additionaltext, descriptions
         });
-    AddContactEvents = (contactId, eventName, eventType, eventDate) => this.request(ENDPOINTS.CONTACTS, 'AddContactEvents', { contactId, eventName, eventType, eventDate });
-    AddGroup = (groupName, Descriptions, showToChilds) => this.request(ENDPOINTS.CONTACTS, 'AddGroup', { groupName, Descriptions, showToChilds });
-    ChangeContact = (contactId, mobilenumber, firstname, lastname, nickname, corporation, phone, fax, email, gender, province, city, address,
-        postalCode, additionaltext, descriptions, contactStatus) => this.request(ENDPOINTS.CONTACTS, 'ChangeContact', {
+    AddContactEvents = (contactId: number, eventName: string, eventType: any, eventDate: Date) => this.request(ENDPOINTS.CONTACTS, 'AddContactEvents', { contactId, eventName, eventType, eventDate });
+    AddGroup = (groupName: string, Descriptions: string, showToChilds: boolean) => this.request(ENDPOINTS.CONTACTS, 'AddGroup', { groupName, Descriptions, showToChilds });
+    ChangeContact = (contactId: number, mobilenumber: string, firstname: string, lastname: string, nickname: string, corporation: string, phone: string, fax: string, email: string, gender: any, province: number, city: number, address: string,
+        postalCode: string, additionaltext: string, descriptions: string, contactStatus: number) => this.request(ENDPOINTS.CONTACTS, 'ChangeContact', {
             contactId, mobilenumber, firstname, lastname, nickname,
             corporation, phone, fax, email, gender, province, city, address, postalCode, additionaltext, descriptions, contactStatus
         });
-    ChangeGroup = (groupId, groupName, Descriptions, showToChilds, groupStatus) =>
+    ChangeGroup = (groupId: number, groupName: string, Descriptions: string, showToChilds: boolean, groupStatus: any) =>
         this.request(ENDPOINTS.CONTACTS, 'ChangeGroup', { groupId, groupName, Descriptions, showToChilds, groupStatus });
-    CheckMobileExistInContact = (mobileNumber) => this.request(ENDPOINTS.CONTACTS, 'CheckMobileExistInContact', { mobileNumber });
-    GetContactEvents = (contactId) => this.request(ENDPOINTS.CONTACTS, 'GetContactEvents', { contactId });
-    GetContacts = (groupId, keyword, from, count) => this.request(ENDPOINTS.CONTACTS, 'GetContacts', { groupId, keyword, from, count });
-    GetContactsByID = (contactId, status) => this.request(ENDPOINTS.CONTACTS, 'GetContactsByID', { contactId, status });
+    CheckMobileExistInContact = (mobileNumber: string) => this.request(ENDPOINTS.CONTACTS, 'CheckMobileExistInContact', { mobileNumber });
+    GetContactEvents = (contactId: number) => this.request(ENDPOINTS.CONTACTS, 'GetContactEvents', { contactId });
+    GetContacts = (groupId: number, keyword: string, from: number, count: number) => this.request(ENDPOINTS.CONTACTS, 'GetContacts', { groupId, keyword, from, count });
+    GetContactsByID = (contactId: number, status: number) => this.request(ENDPOINTS.CONTACTS, 'GetContactsByID', { contactId, status });
     GetGroups = () => this.request(ENDPOINTS.CONTACTS, 'GetGroups', {});
-    MergeGroups = (originGroupId, destinationGroupId, deleteOriginGroup) => this.request(ENDPOINTS.CONTACTS, 'MergeGroups', { originGroupId, destinationGroupId, deleteOriginGroup });
-    RemoveContact = (mobilenumber) => this.request(ENDPOINTS.CONTACTS, 'RemoveContact', { mobilenumber });
-    RemoveContactByContactID = (contactId) => this.request(ENDPOINTS.CONTACTS, 'RemoveContactByContactID', { contactId });
-    RemoveGroup = (groupId) => this.request(ENDPOINTS.CONTACTS, 'RemoveGroup', { groupId });
+    MergeGroups = (originGroupId: number, destinationGroupId: number, deleteOriginGroup: boolean) => this.request(ENDPOINTS.CONTACTS, 'MergeGroups', { originGroupId, destinationGroupId, deleteOriginGroup });
+    RemoveContact = (mobilenumber: string) => this.request(ENDPOINTS.CONTACTS, 'RemoveContact', { mobilenumber });
+    RemoveContactByContactID = (contactId: number) => this.request(ENDPOINTS.CONTACTS, 'RemoveContactByContactID', { contactId });
+    RemoveGroup = (groupId: number) => this.request(ENDPOINTS.CONTACTS, 'RemoveGroup', { groupId });
 
     // SCHEDULE webservice
     AddNewMultipleSchedule = (to, from, text, isflash, scheduleDateTime, period) =>
