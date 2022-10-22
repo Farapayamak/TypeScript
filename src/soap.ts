@@ -95,11 +95,11 @@ export class SoapClient {
     RemoveUser = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'RemoveUser', { targetUsername });
 
     // VOICE webservice
-    SendBulkSpeechText = (title, body, receivers, DateToSend, repeatCount) =>
+    SendBulkSpeechText = (title: string, body: string, receivers: string, DateToSend: string, repeatCount: number) =>
         this.request(ENDPOINTS.VOICE, 'SendBulkSpeechText', { title, body, receivers, DateToSend, repeatCount });
-    SendBulkVoiceSMS = (title, voiceFileId, receivers, DateToSend, repeatCount) =>
+    SendBulkVoiceSMS = (title: string, voiceFileId: number, receivers: string, DateToSend: string, repeatCount: number) =>
         this.request(ENDPOINTS.VOICE, 'SendBulkVoiceSMS', { title, voiceFileId, receivers, DateToSend, repeatCount });
-    UploadVoiceFile = (title, base64StringFile) => this.request(ENDPOINTS.VOICE, 'UploadVoiceFile', { title, base64StringFile });
+    UploadVoiceFile = (title: string, base64StringFile: string) => this.request(ENDPOINTS.VOICE, 'UploadVoiceFile', { title, base64StringFile });
 
     // CONTACT webservice
     AddContact = (groupIds, firstname, lastname, nickname, corporation, mobilenumber, phone, fax, birthdate, email,
