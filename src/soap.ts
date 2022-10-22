@@ -128,15 +128,15 @@ export class SoapClient {
     RemoveGroup = (groupId: number) => this.request(ENDPOINTS.CONTACTS, 'RemoveGroup', { groupId });
 
     // SCHEDULE webservice
-    AddNewMultipleSchedule = (to, from, text, isflash, scheduleDateTime, period) =>
+    AddNewMultipleSchedule = (to: {string: Array<string>}, from: string, text: {string: Array<string>}, isflash: boolean, scheduleDateTime: {dateTime: Array<Date>}, period: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
         this.request(ENDPOINTS.SCHEDULE, 'AddNewMultipleSchedule', { to, from, text, isflash, scheduleDateTime, period });
-    AddNewUsance = (to, from, text, isflash, scheduleStartDateTime, countrepeat, scheduleEndDateTime, periodType) =>
+    AddNewUsance = (to: string, from: string, text: string, isflash: boolean, scheduleStartDateTime: Date, countrepeat: number, scheduleEndDateTime: Date, periodType: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
         this.request(ENDPOINTS.SCHEDULE, 'AddNewUsance', { to, from, text, isflash, scheduleStartDateTime, countrepeat, scheduleEndDateTime, periodType });
-    AddSchedule = (to, from, text, isflash, scheduleDateTime, period) =>
+    AddSchedule = (to: string, from: string, text: string, isflash: boolean, scheduleDateTime: Date, period: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
         this.request(ENDPOINTS.SCHEDULE, 'AddSchedule', { to, from, text, isflash, scheduleDateTime, period });
-    GetScheduleDetails = (scheduleId) => this.request(ENDPOINTS.SCHEDULE, 'GetScheduleDetails', { scheduleId });
-    GetScheduleStatus = (scheduleId) => this.request(ENDPOINTS.SCHEDULE, 'GetScheduleStatus', { scheduleId });
-    RemoveSchedule = (scheduleId) => this.request(ENDPOINTS.SCHEDULE, 'RemoveSchedule', { scheduleId });
+    GetScheduleDetails = (scheduleId: number) => this.request(ENDPOINTS.SCHEDULE, 'GetScheduleDetails', { scheduleId });
+    GetScheduleStatus = (scheduleId: number) => this.request(ENDPOINTS.SCHEDULE, 'GetScheduleStatus', { scheduleId });
+    RemoveSchedule = (scheduleId: number) => this.request(ENDPOINTS.SCHEDULE, 'RemoveSchedule', { scheduleId });
 
     // BULKS webservice
     AddNumberBulk = (from, title, message, receivers, DateToSend) => this.request(ENDPOINTS.BULKS, 'AddNumberBulk', { from, title, message, receivers, DateToSend });
