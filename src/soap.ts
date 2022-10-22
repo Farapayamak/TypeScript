@@ -51,48 +51,48 @@ export class SoapClient {
     RemoveMessages = (location: "Received" | "Sent" | "Removed" | "Deleted", msgIds: string) => this.request(ENDPOINTS.RECEIVE, 'RemoveMessages', { location, msgIds });
 
     // USER webservice
-    AddUser = (productId, descriptions, mobileNumber, emailAddress, nationalCode, name, family, corporation, phone, fax,
-        address, postalCode, certificateNumber) => this.request(ENDPOINTS.USERS, 'AddUser',
+    AddUser = (productId: number, descriptions: string, mobileNumber: string, emailAddress: string, nationalCode: string, name: string, family: string, corporation: string, phone: string, fax: string,
+        address: string, postalCode: string, certificateNumber: string) => this.request(ENDPOINTS.USERS, 'AddUser',
             { productId, descriptions, mobileNumber, emailAddress, nationalCode, name, family, corporation, phone, fax, address, postalCode, certificateNumber });
-    AddUserWithLocation = (productId, descriptions, mobileNumber, emailAddress, nationalCode, name, family, corporation, phone, fax,
-        address, postalCode, certificateNumber, country, province, city) => this.request(ENDPOINTS.USERS, 'AddUserWithLocation',
+    AddUserWithLocation = (productId: number, descriptions: string, mobileNumber: string, emailAddress: string, nationalCode: string, name: string, family: string, corporation: string, phone: string, fax: string,
+        address: string, postalCode: string, certificateNumber: string, country: number, province: number, city: number) => this.request(ENDPOINTS.USERS, 'AddUserWithLocation',
             {
                 productId, descriptions, mobileNumber, emailAddress, nationalCode, name, family, corporation, phone, fax,
                 address, postalCode, certificateNumber, country, province, city
             });
-    AddUserWithMobileNumber = (productId, mobileNumber, firstName, lastName, email) =>
+    AddUserWithMobileNumber = (productId: number, mobileNumber: string, firstName: string, lastName: string, email: string) =>
         this.request(ENDPOINTS.USERS, 'AddUserWithMobileNumber', { productId, mobileNumber, firstName, lastName, email });
-    AddUserWithMobileNumber2 = (productId, mobileNumber, firstName, lastName, targetUsername, email) =>
+    AddUserWithMobileNumber2 = (productId: number, mobileNumber: string, firstName: string, lastName: string, targetUsername: string, email: string) =>
         this.request(ENDPOINTS.USERS, 'AddUserWithMobileNumber2', { productId, mobileNumber, firstName, lastName, targetUsername, email });
-    AddUserWithUserNameAndPass = (targetUserName, targetUserPassword, productId, descriptions, mobileNumber, emailAddress, nationalCode,
-        name, family, corporation, phone, fax, address, postalCode, certificateNumber) =>
+    AddUserWithUserNameAndPass = (targetUserName: string, targetUserPassword: string, productId: number, descriptions: string, mobileNumber: string, emailAddress: string, nationalCode: string,
+        name: string, family: string, corporation: string, phone: string, fax: string, address: string, postalCode: string, certificateNumber: string) =>
         this.request(ENDPOINTS.USERS, 'AddUserWithUserNameAndPass', {
             targetUserName, targetUserPassword, productId, descriptions, mobileNumber, emailAddress, nationalCode,
             name, family, corporation, phone, fax, address, postalCode, certificateNumber
         });
     AuthenticateUser = () => this.request(ENDPOINTS.USERS, 'AuthenticateUser', {});
-    ChangeUserCredit = (amount, description, targetUsername, GetTax) =>
+    ChangeUserCredit = (amount: number, description: string, targetUsername: string, GetTax: boolean) =>
         this.request(ENDPOINTS.USERS, 'ChangeUserCredit', { amount, description, targetUsername, GetTax });
-    DeductUserCredit = (amount, description) => this.request(ENDPOINTS.USERS, 'DeductUserCredit', { amount, description });
-    ForgotPassword = (mobileNumber, emailAddress, targetUsername) =>
+    DeductUserCredit = (amount: number, description: string) => this.request(ENDPOINTS.USERS, 'DeductUserCredit', { amount, description });
+    ForgotPassword = (mobileNumber: string, emailAddress: string, targetUsername: string) =>
         this.request(ENDPOINTS.USERS, 'ForgotPassword', { mobileNumber, emailAddress, targetUsername });
-    GetCities = (provinceId) => this.request(ENDPOINTS.USERS, 'GetCities', { provinceId });
+    GetCities = (provinceId: number) => this.request(ENDPOINTS.USERS, 'GetCities', { provinceId });
     GetEnExpireDate = () => this.request(ENDPOINTS.USERS, 'GetEnExpireDate', {});
     GetExpireDate = () => this.request(ENDPOINTS.USERS, 'GetExpireDate', {});
     GetProvinces = () => this.request(ENDPOINTS.USERS, 'GetProvinces', {});
-    GetUserBasePrice = (targetUsername) => this.request(ENDPOINTS.USERS, 'GetUserBasePrice', { targetUsername });
-    GetUserCredit = (targetUsername) => this.request(ENDPOINTS.USERS, 'GetUserCredit', { targetUsername });
+    GetUserBasePrice = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'GetUserBasePrice', { targetUsername });
+    GetUserCredit = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'GetUserCredit', { targetUsername });
     GetUserCredit2 = () => this.request(ENDPOINTS.USERS, 'GetUserCredit2', {});
-    GetUserDetails = (targetUsername) => this.request(ENDPOINTS.USERS, 'GetUserDetails', { targetUsername });
-    GetUserIsExist = (targetUsername) => this.request(ENDPOINTS.USERS, 'GetUserIsExist', { targetUsername });
+    GetUserDetails = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'GetUserDetails', { targetUsername });
+    GetUserIsExist = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'GetUserIsExist', { targetUsername });
     GetUserNumbers = () => this.request(ENDPOINTS.USERS, 'GetUserNumbers', {});
-    GetUserTransactions = (targetUsername, creditType, dateFrom, dateTo, keyword) =>
+    GetUserTransactions = (targetUsername: string, creditType: "SendSMS" | "ReceiveSMS" | "ChargeAccount" | "MoneyBack" | "Gift" | "AddEmployee" | "ChargeEmployee" | "RemoveEmplooyee" | "Profit" | "BuyNumber" | "ChargeCard" | "SaleCard" | "BuyModule" | "SendFax" | "SendVoiceSMS" | "CallDivert" | "CallExtenstion" | "Voip" | "Discount" | "InstallMent" | "DecreaseCredit" | "TestCredit" | "USSD" | "BuyCreditCharge" | "RenewPanel" | "ChargeAccountWithProfit" | "MoneyBackInLine" | "Bts" | "All", dateFrom: Date, dateTo: Date, keyword: string) =>
         this.request(ENDPOINTS.USERS, 'GetUserTransactions', { targetUsername, creditType, dateFrom, dateTo, keyword });
     GetUserWallet = () => this.request(ENDPOINTS.USERS, 'GetUserWallet', {});
-    GetUserWalletTransaction = (dateFrom, dateTo, count, startIndex, payType, payLoc) =>
+    GetUserWalletTransaction = (dateFrom: Date, dateTo: Date, count: number, startIndex: number, payType: "All" | "ChargeWallet" | "BuySms" | "BuyWidget" | "BuyResources" | "BuyTemplate" | "BuyDomain" | "BuyCms" | "BuyPackage" | "BuyNumber" | "SendFax" | "SendVoiceSms" | "InCommingCall" | "Divert" | "Revival" | "InstallMent" | "NotifySms" | "RevivalSubReseller" | "ActivateSubReseller" | "ActivatePanel" | "UpgradePanel" | "PanelPrice" | "Cancel" | "RefundToUser" | "VoiceMessage" | "DeleteFromReport" | "AvaPayamCharge" | "Discount" | "BuyWebsite" | "BuyWebsiteAndDomain" | "ActivateCRMPanel" | "RenewNumber", payLoc: "Farapayamak" | "DTS" | "Rayo" | "AvaPayam") =>
         this.request(ENDPOINTS.USERS, 'GetUserWalletTransaction', { dateFrom, dateTo, count, startIndex, payType, payLoc });
     GetUsers = () => this.request(ENDPOINTS.USERS, 'GetUsers', {});
-    RemoveUser = (targetUsername) => this.request(ENDPOINTS.USERS, 'RemoveUser', { targetUsername });
+    RemoveUser = (targetUsername: string) => this.request(ENDPOINTS.USERS, 'RemoveUser', { targetUsername });
 
     // VOICE webservice
     SendBulkSpeechText = (title, body, receivers, DateToSend, repeatCount) =>
