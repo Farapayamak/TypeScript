@@ -25,18 +25,18 @@ export class SoapClient {
 
     // SEND webservice
     GetCredit = () => this.request(ENDPOINTS.SEND, 'GetCredit', {});
-    GetDeliveries = (recIds: {long: Array<number>}) => this.request(ENDPOINTS.SEND, 'GetDeliveries', { recIds });
-    GetDeliveries3 = (recId: {string: Array<string>}) => this.request(ENDPOINTS.SEND, 'GetDeliveries3', { recId });
+    GetDeliveries = (recIds: { long: Array<number> }) => this.request(ENDPOINTS.SEND, 'GetDeliveries', { recIds });
+    GetDeliveries3 = (recId: { string: Array<string> }) => this.request(ENDPOINTS.SEND, 'GetDeliveries3', { recId });
     GetSmsPrice = (irancellCount: number, mtnCount: number, from: string, text: string) => this.request(ENDPOINTS.SEND, 'GetSmsPrice', { irancellCount, mtnCount, from, text });
-    SendByBaseNumber = (text: {string: Array<string>}, to: string, bodyId: number) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber', { text, to, bodyId });
+    SendByBaseNumber = (text: { string: Array<string> }, to: string, bodyId: number) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber', { text, to, bodyId });
     SendByBaseNumber2 = (text: string, to: string, bodyId: number) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber2', { text, to, bodyId });
     SendByBaseNumber3 = (text: string, to: string) => this.request(ENDPOINTS.SEND, 'SendByBaseNumber3', { 'text': text, 'to': to });
-    SendSimpleSMS = (to: {string: Array<string>}, from: string, text: string, isflash: boolean) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS', { to, from, text, isflash });
+    SendSimpleSMS = (to: { string: Array<string> }, from: string, text: string, isflash: boolean) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS', { to, from, text, isflash });
     SendSimpleSMS2 = (to: string, from: string, text: string, isflash: boolean) => this.request(ENDPOINTS.SEND, 'SendSimpleSMS2', { to, from, text, isflash });
-    SendSms = (to: {string: Array<string>}, from: string, text: string, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendSms', { to, from, text, isflash, udh, recId, status });
-    SendSms2 = (to: {string: Array<string>}, from: string, text: string, isflash: boolean, udh: string, recId: {long: Array<number>}, status, filterId: number) => this.request(ENDPOINTS.SEND, 'SendSms2', { to, from, text, isflash, udh, recId, status, filterId });
-    SendMultipleSMS = (to: {string: Array<string>}, from: string, text: {string: Array<string>}, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS', { to, from, text, isflash, udh, recId, status });
-    SendMultipleSMS2 = (to: {string: Array<string>}, from: {string: Array<string>}, text: {string: Array<string>}, isflash: boolean, udh: string, recId: {long: Array<number>}, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS2', { to, from, text, isflash, udh, recId, status });
+    SendSms = (to: { string: Array<string> }, from: string, text: string, isflash: boolean, udh: string, recId: { long: Array<number> }, status) => this.request(ENDPOINTS.SEND, 'SendSms', { to, from, text, isflash, udh, recId, status });
+    SendSms2 = (to: { string: Array<string> }, from: string, text: string, isflash: boolean, udh: string, recId: { long: Array<number> }, status, filterId: number) => this.request(ENDPOINTS.SEND, 'SendSms2', { to, from, text, isflash, udh, recId, status, filterId });
+    SendMultipleSMS = (to: { string: Array<string> }, from: string, text: { string: Array<string> }, isflash: boolean, udh: string, recId: { long: Array<number> }, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS', { to, from, text, isflash, udh, recId, status });
+    SendMultipleSMS2 = (to: { string: Array<string> }, from: { string: Array<string> }, text: { string: Array<string> }, isflash: boolean, udh: string, recId: { long: Array<number> }, status) => this.request(ENDPOINTS.SEND, 'SendMultipleSMS2', { to, from, text, isflash, udh, recId, status });
 
     // RECEIVE webservice
     ChangeMessageIsRead = (msgIds: string) => this.request(ENDPOINTS.RECEIVE, 'ChangeMessageIsRead', { msgIds });
@@ -128,7 +128,7 @@ export class SoapClient {
     RemoveGroup = (groupId: number) => this.request(ENDPOINTS.CONTACTS, 'RemoveGroup', { groupId });
 
     // SCHEDULE webservice
-    AddNewMultipleSchedule = (to: {string: Array<string>}, from: string, text: {string: Array<string>}, isflash: boolean, scheduleDateTime: {dateTime: Array<Date>}, period: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
+    AddNewMultipleSchedule = (to: { string: Array<string> }, from: string, text: { string: Array<string> }, isflash: boolean, scheduleDateTime: { dateTime: Array<Date> }, period: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
         this.request(ENDPOINTS.SCHEDULE, 'AddNewMultipleSchedule', { to, from, text, isflash, scheduleDateTime, period });
     AddNewUsance = (to: string, from: string, text: string, isflash: boolean, scheduleStartDateTime: Date, countrepeat: number, scheduleEndDateTime: Date, periodType: "Once" | "Daily" | "Weekly" | "Monthly" | "Yearly" | "Custom") =>
         this.request(ENDPOINTS.SCHEDULE, 'AddNewUsance', { to, from, text, isflash, scheduleStartDateTime, countrepeat, scheduleEndDateTime, periodType });
@@ -142,7 +142,7 @@ export class SoapClient {
     AddNumberBulk = (from: string, title: string, message: string, receivers: string, DateToSend: string) => this.request(ENDPOINTS.BULKS, 'AddNumberBulk', { from, title, message, receivers, DateToSend });
     BulkReception = (bulkId: number, maximumRows: number, startRowIndex: number) => this.request(ENDPOINTS.BULKS, 'BulkReception', { bulkId, maximumRows, startRowIndex });
     BulkReceptionCount = (bulkId: number) => this.request(ENDPOINTS.BULKS, 'BulkReceptionCount', { bulkId });
-    GetBulkDeliveries = (recIds: {long: Array<number>}) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries', { recIds });
+    GetBulkDeliveries = (recIds: { long: Array<number> }) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries', { recIds });
     GetBulkDeliveries2 = (recId: string) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries2', { recId });
     GetBulkDetails = (bulkdId: number) => this.request(ENDPOINTS.BULKS, 'GetBulkDetails', { bulkdId });
 }
