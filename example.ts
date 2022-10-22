@@ -1,5 +1,5 @@
 // Use the following import after adding this package to your project dependencies
-// import { RestClient, SoapClient } from 'farapayamak-ts';
+// import { RestClient, SoapClient } from 'farapayamak-typescript';
 
 
 
