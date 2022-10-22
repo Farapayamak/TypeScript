@@ -1,13 +1,15 @@
 {
   "name": "farapayamak-typescript",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "TypeScript webservice wrapper for Farapayamak",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Farapayamak/TypeScript.git"
   },
   "keywords": [
-    "nodejs", "typescript", "farapayamak"
+    "nodejs",
+    "typescript",
+    "farapayamak"
   ],
   "author": "Amirhossein Mehrvarzi",
   "license": "MIT",
