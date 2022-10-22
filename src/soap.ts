@@ -139,12 +139,12 @@ export class SoapClient {
     RemoveSchedule = (scheduleId: number) => this.request(ENDPOINTS.SCHEDULE, 'RemoveSchedule', { scheduleId });
 
     // BULKS webservice
-    AddNumberBulk = (from, title, message, receivers, DateToSend) => this.request(ENDPOINTS.BULKS, 'AddNumberBulk', { from, title, message, receivers, DateToSend });
-    BulkReception = (bulkId, maximumRows, startRowIndex) => this.request(ENDPOINTS.BULKS, 'BulkReception', { bulkId, maximumRows, startRowIndex });
-    BulkReceptionCount = (bulkId) => this.request(ENDPOINTS.BULKS, 'BulkReceptionCount', { bulkId });
-    GetBulkDeliveries = (recIds) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries', { recIds });
-    GetBulkDeliveries2 = (recId) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries2', { recId });
-    GetBulkDetails = (bulkdId) => this.request(ENDPOINTS.BULKS, 'GetBulkDetails', { bulkdId });
+    AddNumberBulk = (from: string, title: string, message: string, receivers: string, DateToSend: string) => this.request(ENDPOINTS.BULKS, 'AddNumberBulk', { from, title, message, receivers, DateToSend });
+    BulkReception = (bulkId: number, maximumRows: number, startRowIndex: number) => this.request(ENDPOINTS.BULKS, 'BulkReception', { bulkId, maximumRows, startRowIndex });
+    BulkReceptionCount = (bulkId: number) => this.request(ENDPOINTS.BULKS, 'BulkReceptionCount', { bulkId });
+    GetBulkDeliveries = (recIds: {long: Array<number>}) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries', { recIds });
+    GetBulkDeliveries2 = (recId: string) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries2', { recId });
+    GetBulkDetails = (bulkdId: number) => this.request(ENDPOINTS.BULKS, 'GetBulkDetails', { bulkdId });
 }
 
 
