@@ -44,6 +44,10 @@ restClient.GetCredit();
 restClient.GetBasePrice();
 restClient.GetUserNumbers();
 restClient.BaseServiceNumber(text, to, bodyId);
+restClient.SendSmartSMS(to, text, from, fromSupportOne, fromSupportTwo);
+restClient.SendMultipleSmartSMS(to, text, from, fromSupportOne, fromSupportTwo);
+restClient.GetSmartDeliveries2(id);
+restClient.GetSmartDeliveries(ids);
 ```
 
 ## SOAP Methods
@@ -166,4 +170,12 @@ soapClient.BulkReceptionCount(bulkId);
 soapClient.GetBulkDeliveries(recIds);
 soapClient.GetBulkDeliveries2(recId);
 soapClient.GetBulkDetails(bulkdId);
+```
+
+### Smart Web Service
+
+```js
+soapClient.SendSmartSMS(to, text, from, fromSupportOne, fromSupportTwo);
+soapClient.SendMultipleSmartSMS(to, text, from, fromSupportOne, fromSupportTwo);
+soapClient.GetSmartSMSDeliveries(Ids);
 ```
