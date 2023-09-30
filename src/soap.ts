@@ -145,6 +145,11 @@ export class SoapClient {
     GetBulkDeliveries = (recIds: { long: Array<number> }) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries', { recIds });
     GetBulkDeliveries2 = (recId: string) => this.request(ENDPOINTS.BULKS, 'GetBulkDeliveries2', { recId });
     GetBulkDetails = (bulkdId: number) => this.request(ENDPOINTS.BULKS, 'GetBulkDetails', { bulkdId });
+
+    // SMART webservice
+    SendSmartSMS = (to: string, text: string, from: string, fromSupportOne: string, fromSupportTwo: string) => this.request(ENDPOINTS.SMART, 'SendSmartSMS', {to, text, from, fromSupportOne, fromSupportTwo});
+    SendMultipleSmartSMS = (to: Array<string>, text: Array<string>, from: string, fromSupportOne: string, fromSupportTwo: string) => this.request(ENDPOINTS.SMART, 'SendMultipleSmartSMS', {to, text, from, fromSupportOne, fromSupportTwo});
+    GetSmartSMSDeliveries = (Ids: Array<number>) => this.request(ENDPOINTS.SMART, 'GetSmartSMSDeliveries', {Ids});
 }
 
 
@@ -156,4 +161,5 @@ class ENDPOINTS {
     static CONTACTS = "Contacts";
     static SCHEDULE = "Schedule";
     static BULKS = "Newbulks";
+    static SMART = "Smartsms";
 }
