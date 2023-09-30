@@ -1,6 +1,6 @@
 {
   "name": "farapayamak-typescript",
-  "version": "1.2.0",
+  "version": "1.3.0",
   "description": "TypeScript webservice wrapper for Farapayamak",
   "repository": {
     "type": "git",
